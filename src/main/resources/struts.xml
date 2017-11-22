@@ -16,7 +16,7 @@
     <!-- Struts2在2.5版本后添加strict-method-invocation(严格方法访问)，默认为true，不能使用动态方法调用功能，故需设为false -->
     <package name="product" extends="struts-default" namespace="/" strict-method-invocation="false">
         <!-- 保存商品 -->
-        <action name="product_*" class="org.ssh.product.action.ProductAction" method="{1}Product">
+        <action name="product_*" class="ssh.product.action.ProductAction" method="{1}Product">
             <result>WEB-INF/view/index.jsp</result>
             <result name="input">WEB-INF/view/index.jsp</result>
         </action>

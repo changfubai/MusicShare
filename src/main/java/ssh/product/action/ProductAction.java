@@ -1,12 +1,12 @@
-package org.ssh.product.action;
+package ssh.product.action;
 
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import org.ssh.product.model.Product;
-import org.ssh.product.service.ProductService;
+import ssh.product.model.Product;
+import ssh.product.service.ProductService;
 
 /**
  * 商品操作-控制层

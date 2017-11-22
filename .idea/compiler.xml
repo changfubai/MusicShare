@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="MusicShare" />
         <module name="sshdemo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="MusicShare" target="1.8" />
       <module name="sshdemo" target="1.8" />
     </bytecodeTargetLevel>
   </component>

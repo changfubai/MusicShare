@@ -1,4 +1,4 @@
-package org.ssh.product.model;
+package ssh.product.model;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;

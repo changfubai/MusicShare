@@ -1,6 +1,6 @@
-package org.ssh.product.service;
+package ssh.product.service;
 
-import org.ssh.product.model.Product;
+import ssh.product.model.Product;
 
 public interface ProductService {
 
