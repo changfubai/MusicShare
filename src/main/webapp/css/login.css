@@ -1,0 +1,26 @@
+.loginmain{
+		width: 100%;
+	overflow:hidden;
+	background-color: #eee;
+}
+.lm{
+	width: 770px;
+	height: auto;
+	margin: 20px auto 0px;
+	background-color: #FFFFFF;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+.lu{
+	margin-top: 30px;
+}
+
+.loginform{
+padding-bottom: 20px;
+}
+.regesterinfo{
+	width: 550px;
+	height: 300px;
+	margin: 50px auto;
+}
+

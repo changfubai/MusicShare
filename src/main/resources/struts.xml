@@ -11,12 +11,50 @@
             <result>/WEB-INF/view/index.jsp</result>
         </action>
     </package>
+    <package name="login" extends="struts-default" namespace="/"  strict-method-invocation="false">
+        <action name="Login_*" class="ssh.product.action.LoginAction" method="{1}">
+            <result name="regestview">WEB-INF/view/login/regest.jsp</result>
+            <result name="loginview">WEB-INF/view/login/login.jsp</result>
+        </action>
+    </package>
+    <package name="trends" extends="struts-default,json-default" namespace="/"  strict-method-invocation="false">
+        <action name="Trends_*" class="ssh.product.action.trends.TrendsAction" method="{1}">
+            <result name="trendslist">WEB-INF/view/trends/trendslist.jsp</result>
+            <result name="mytrendslist">WEB-INF/view/trends/mytrendslist.jsp</result>
+            <result name="TrendsById">WEB-INF/view/trends/edit.jsp</result>
+            <result name="pushlist">WEB-INF/view/trends/pushTrends.jsp</result>
+            <result name="collect">WEB-INF/view/trends/collectTrends.jsp</result>
+
+            <result name="thumbTrends" type="json">
+                <param name="root">result</param>
+            </result>
+            <result name="pushAll" type="json">
+                <param name="root">result</param>
+            </result>
+            <result name="editTrendz" type="json">
+                <param name="root">result</param>
+            </result>
+            <result name="deletTrends" type="json">
+                <param name="root">result</param>
+            </result>
+            <!--<result name="loginview">WEB-INF/view/login/login.jsp</result>-->
+        </action>
+        <action name="Collect_*" class="ssh.product.action.trends.CollectAction" method="{1}">
+            <result name="collectTrends" type="json">
+            <param name="root">result</param>
+        </result>
+            <result name="cutc" type="json">
+                <param name="root">result</param>
+            </result>
+            <!--<result name="loginview">WEB-INF/view/login/login.jsp</result>-->
+        </action>
+    </package>
 
     <!-- 商品相关请求转发 -->
     <!-- Struts2在2.5版本后添加strict-method-invocation(严格方法访问)，默认为true，不能使用动态方法调用功能，故需设为false -->
     <package name="product" extends="struts-default" namespace="/" strict-method-invocation="false">
         <!-- 保存商品 -->
-        <action name="product_*" class="ssh.product.action.ProductAction" method="{1}Product">
+        <action name="product_*" class="ssh.product.action.ProductAction" method="{1}">
             <result>WEB-INF/view/index.jsp</result>
             <result name="input">WEB-INF/view/index.jsp</result>
         </action>

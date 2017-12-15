@@ -1,0 +1,53 @@
+.usermain{
+		/*overflow:hidden;*/
+	width:100%; 
+	margin:0 auto;
+	background: #eee;
+	height: 85vh;
+}
+.midbav{
+	width: 1200px;
+	margin: 0px auto 0px;
+}
+.lerfbav{
+	float: left;
+	padding-top: 20px;
+	margin-left: 13%;
+	width: 150px;
+	height: auto;
+	/*background: #222222;*/
+}
+.leftb{
+	height: 380px;
+}
+.rightbv{
+	float: left;
+	margin-left: 30px;
+	margin-top: 20px;
+	width: 780px;
+	height: 410px;
+	background-color: #FFFFFF;
+}
+.photo{
+	margin-left: 50px;
+	margin-top: 20px;
+
+}
+.up{
+	margin-left: 55px;
+	margin-top: 10px;
+}
+.userleft{
+	float: left;
+	width: 200px;
+}
+.userright{
+	margin-left: 50px;
+	margin-top: 20px;
+	float: left;
+}
+.changepwd{
+	width: 500px;
+	margin-top: 20px;
+	margin-left: 20px;
+}
