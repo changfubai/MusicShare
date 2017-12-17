@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*.loginmain{
 		width: 100%;
 	overflow:hidden;
@@ -8,6 +9,16 @@
 .lm{
 	width: 770px;
 	height: 500px;
+=======
+.loginmain{
+		width: 100%;
+	overflow:hidden;
+	background-color: #eee;
+}
+.lm{
+	width: 770px;
+	height: auto;
+>>>>>>> origin/master
 	margin: 20px auto 0px;
 	background-color: #FFFFFF;
 	padding-left: 50px;
@@ -16,11 +27,15 @@
 .lu{
 	margin-top: 30px;
 }
+<<<<<<< HEAD
 .logininfo{
 	width: 550px;
 	height: 300px;
 	margin: 50px auto;
 }
+=======
+
+>>>>>>> origin/master
 .loginform{
 padding-bottom: 20px;
 }
@@ -30,6 +45,7 @@ padding-bottom: 20px;
 	margin: 50px auto;
 }
 
+<<<<<<< HEAD
 */
 
 
@@ -159,3 +175,5 @@ padding-bottom: 20px;
     border-radius: 50px;
     background: #0096e6;
 }
+=======
+>>>>>>> origin/master

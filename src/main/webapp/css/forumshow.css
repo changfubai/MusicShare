@@ -1,0 +1,30 @@
+.maincontent{
+	width: 100%;
+	overflow:hidden;
+	background-color: #eee;
+	/*position:absolute;*/
+	height: 85vh;
+}
+.topmain{
+	width: 770px;
+	margin: 10px auto;
+	background-color: #FFFFFF;
+	overflow:hidden;
+}
+.titlepc{
+	font-size: 24px;
+	line-height: 36px;
+	font-weight: 400;
+	padding-top: 10px;
+	text-align: center;
+
+}
+.reply{
+float: right;
+margin-right: 20px;
+
+}
+.budge{
+	float: left;
+	margin-left: 20px;
+}

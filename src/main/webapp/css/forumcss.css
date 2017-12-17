@@ -1,0 +1,75 @@
+.flogo{
+	margin-left: 25%;
+}
+.forumnav{
+  background: #222222;
+  color: #eee;
+  margin-bottom: 0px;
+
+}
+.maincontent{
+	width: 100%;
+	overflow:hidden;
+	background-color: #eee;
+	/*position:absolute;*/
+	height: 85vh;
+}
+.footer{
+ background: #222222;
+text-align: center;
+color: #eee;
+height: 100px;
+width: 100%;
+/*position:absolute;*/
+bottom:0px;
+left:0px;
+}
+.leftmain{
+	width: 770px;
+	margin: 20px auto 0px;
+	background-color: #FFFFFF;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+.lefthead{
+	padding: 10px 0;
+}
+.midmain{
+	width: 770px;
+	margin: 10px auto;
+	background-color: #FFFFFF;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+.midcontent{
+	padding-top: 20px;
+}
+.card{
+	margin-top: 20px;
+}
+.forumhead{
+	float: left;
+}
+.list{
+	clear: both;
+}
+.im{
+	float: left;
+}
+.title{
+	float: left;
+	margin-left: 16px;
+	margin-top: 5px;
+	width: 60%;
+}
+.info{
+	width: 60%;
+	float: left;
+	margin-left: 16px;
+	margin-top: 2px;
+}
+.repy{
+	float: right;
+}
+
+
