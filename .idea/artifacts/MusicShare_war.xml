@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="MusicShare:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="sshdemo.war">
+    <root id="archive" name="MusicShare.war">
       <element id="artifact" artifact-name="MusicShare:war exploded" />
     </root>
   </artifact>

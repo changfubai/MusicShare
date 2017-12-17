@@ -8,7 +8,7 @@
     <package name="default" extends="struts-default" namespace="/">
         <default-action-ref name="default"/>
         <action name="default">
-            <result>/WEB-INF/view/index.jsp</result>
+            <result>/WEB-INF/enter.html</result>
         </action>
     </package>
 
