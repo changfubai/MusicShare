@@ -22,10 +22,10 @@
     <!-- 配置C3P0连接池 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <!-- 数据库连接相关信息 -->
-        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="jdbcUrl" value="jdbc:mysql://120.24.37.204:3306/fxweb?useSSL=true&amp; characterEncoding=UTF-8}"/>
         <property name="driverClass" value="${jdbc.driverClass}"/>
         <property name="user" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
+        <property name="password" value="ssh:root"/>
     </bean>
 
     <!-- 配置Hibernate的SessionFactory -->
@@ -50,6 +50,7 @@
     <bean id="CollectAction" class="ssh.product.action.trends.CollectAction" scope="prototype">
         <property name="collectEntityService" ref="collectEntityService"/>
     </bean>
+
     <!-- dao注入配置 -->
     <bean id="trendsEntityService" class="ssh.product.service.impl.TrendsEntityServiceImpl" >
         <property name="trendsEntityDao" ref="rendsEntityDao"/>
@@ -57,6 +58,8 @@
     <bean id="collectEntityService" class="ssh.product.service.impl.CollectEntityServiceImpl" >
         <property name="collectEntityDao" ref="collectEntityDao"/>
     </bean>
+
+
     <!-- session注入配置 -->
     <bean id="rendsEntityDao" class="ssh.product.dao.impl.TrendsEntityDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
@@ -64,6 +67,30 @@
     <bean id="collectEntityDao" class="ssh.product.dao.impl.CollectEntityDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+
+
+    <!-- 2017/12/21 10:44  fangzq写的依赖注入方式 -->
+    <!-- userEntityDao-->
+    <bean id="userEntityDao" class="ssh.product.dao.impl.UserEntityDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+
+    <!-- 获取歌曲类别的categoryEntityDao -->
+    <bean id="categoryEntityDao" class="ssh.product.dao.impl.CategoryEntityDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+
+    <!-- 获取歌曲的songEntityDao -->
+    <bean id="songEntityDao" class="ssh.product.dao.impl.SongEntityDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+
 
     <!--<bean id="LoginAction" class="ssh.product.action.LoginAction" scope="prototype">-->
         <!--<property name="userService" ref="UserService"/>-->
@@ -84,6 +111,22 @@
     </bean>
     <bean id="userDao" class="java.lang.String"/>
     <bean id="userService" class="java.lang.String"/>
+
+
+    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+        <!--<tx:attributes>-->
+            <!--<tx:method name="do*" propagation="REQUIRED" rollback-for="Exception" />-->
+            <!--<tx:method name="add*" propagation="REQUIRED" rollback-for="Exception" />-->
+            <!--<tx:method name="save*" rollback-for="Exception" propagation="REQUIRED"/>-->
+            <!--<tx:method name="del*" propagation="REQUIRED" rollback-for="Exception" />-->
+            <!--<tx:method name="mod*" propagation="REQUIRED" rollback-for="Exception" />-->
+            <!--<tx:method name="ins*" propagation="REQUIRED" rollback-for="Exception" />-->
+            <!--<tx:method name="upd*" propagation="REQUIRED" rollback-for="Exception" />-->
+            <!--<tx:method name="invoke" propagation="REQUIRES_NEW" rollback-for="Exception" />-->
+            <!--<tx:method name="*" propagation="SUPPORTS" read-only="true" />-->
+        <!--</tx:attributes>-->
+    <!--</tx:advice>-->
+
 
 
     <!-- 配置事务增强 -->

@@ -8,15 +8,41 @@
     <package name="default" extends="struts-default" namespace="/">
         <default-action-ref name="default"/>
         <action name="default">
-            <result>/WEB-INF/enter.html</result>
+            <result>/enter.html</result>
+            <!--<result>WEB-INF/pages/register.jsp</result>-->
         </action>
     </package>
+
+    <!--访问主页-->
+    <package name="index"  extends="struts-default" namespace="/">
+        <action name="indexAction" class="ssh.product.action.song.categoryAction">
+            <!--<result>WEB-INF/pages/index.html</result>-->
+            <result>WEB-INF/pages/index.jsp</result>
+        </action>
+    </package>
+
+
+    <!--功能：访问登录页面  以及 登录功能
+        action的名字login_page ->page()方法的返回值：loginPage  ->访问页面WEB-INF/pages/login.jsp
+        action的名字login_success  ->success ()方法的返回值：loginSuccess    -> 访问页面WEB-INF/pages/index.jsp
+     -->
+
     <package name="login" extends="struts-default" namespace="/"  strict-method-invocation="false">
-        <action name="Login_*" class="ssh.product.action.LoginAction" method="{1}">
-            <result name="regestview">WEB-INF/view/login/regest.jsp</result>
-            <result name="loginview">WEB-INF/view/login/login.jsp</result>
+        <action name="login_*" class="ssh.product.action.user.LoginAction" method="{1}">
+            <result name="loginPage">WEB-INF/pages/login.jsp</result>
+            <result name="loginSuccess">WEB-INF/pages/index.jsp</result>   <!-- 登录成功之后访问主页 -->
         </action>
     </package>
+
+    <!--功能：访问注册页面 以及 注册功能 -->
+    <package name="register" extends="struts-default" namespace="/"  strict-method-invocation="false">
+        <action name="register_*" class="ssh.product.action.user.RegisterAction" method="{1}">
+            <result name="registerPage">WEB-INF/pages/register.jsp</result>
+            <result name="registerSuccess"></result>   <!-- 登录成功之后访问个人中心页 -->
+        </action>
+    </package>
+
+
     <package name="trends" extends="struts-default,json-default" namespace="/"  strict-method-invocation="false">
         <action name="Trends_*" class="ssh.product.action.trends.TrendsAction" method="{1}">
             <result name="trendslist">WEB-INF/view/trends/trendslist.jsp</result>
