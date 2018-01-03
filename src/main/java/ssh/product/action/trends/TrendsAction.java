@@ -9,9 +9,11 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.dispatcher.multipart.MultiPartRequestWrapper;
+import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import ssh.product.model.trends.TrendsEntity;
+import ssh.product.model.user.UserEntity;
 import ssh.product.service.trends.TrendsEntityService;
 
 
@@ -21,7 +23,7 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class TrendsAction extends ActionSupport implements ModelDriven<TrendsEntity>{
+public class TrendsAction extends ActionSupport implements SessionAware,ModelDriven<TrendsEntity>{
     private TrendsEntity trendsEntity;
     private String result;
 
@@ -77,14 +79,19 @@ public class TrendsAction extends ActionSupport implements ModelDriven<TrendsEnt
     }
     //发表动态
     public String pushTrends(){
-        Date untildate=new Date();
-        Date time=new Date(untildate.getTime());
-        trendsEntity.setImage("555");
-        trendsEntity.setUpdateTime(time);
-        trendsEntityService.pushTrends(trendsEntity);
+        UserEntity user = (UserEntity) session.get("user");
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("status",1);
-        map.put("msg","动态发布成功");
+        if (user != null) {
+            Date untildate=new Date();
+            Date time=new Date(untildate.getTime());
+            trendsEntity.setUpdateTime(time);
+            trendsEntity.setUserId(user.getId());
+            trendsEntityService.pushTrends(trendsEntity);
+
+            map.put("status",1);
+            map.put("msg","动态发布成功");
+
+        }
         map.put("msgl","动态发布失败");
         JSONObject json = JSONObject.fromObject(map);//将map对象转换成json类型数据
         result = json.toString();//给result赋值，传递给页面
@@ -103,9 +110,12 @@ public class TrendsAction extends ActionSupport implements ModelDriven<TrendsEnt
     //展示自己发布的动态
     public String mytrendsList(){
         //根据session获取登陆人的id
-//        Map session = ActionContext.getContext().getSession();
-//       int user_id= (int)session.get("id");
-       int user_id=2;
+        int user_id = 0;
+        UserEntity user = (UserEntity) session.get("user");
+
+        if (user != null) {
+            user_id = user.getId();
+        }
         List<TrendsEntity> myList=trendsEntityService.MyTrendsList(user_id);
         ActionContext.getContext().getValueStack().set("mylist", myList);
         return "mytrendslist";
@@ -134,7 +144,12 @@ public class TrendsAction extends ActionSupport implements ModelDriven<TrendsEnt
     }
     //收藏的动态
     public String collectTrends(){
-        int user_id=2;
+        int user_id = 0;
+        UserEntity user = (UserEntity) session.get("user");
+
+        if (user != null) {
+            user_id = user.getId();
+        }
         List mycollect=trendsEntityService.MyCollect(user_id);
 //        System.out.println(mycollect.toArray());
         ActionContext.getContext().getValueStack().set("mycollect", mycollect);
@@ -290,5 +305,10 @@ public class TrendsAction extends ActionSupport implements ModelDriven<TrendsEnt
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html; charset=utf-8");
         return response.getWriter();
+    }
+    protected Map<String, Object> session;
+    @Override
+    public void setSession(Map<String, Object> session) {
+        this.session = session;
     }
 }

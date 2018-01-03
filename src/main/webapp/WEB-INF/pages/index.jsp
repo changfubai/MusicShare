@@ -118,7 +118,7 @@
                                 <li><a href="#" id="bt_initial">首页</a></li>
                                 <li><a href="#">分享</a></li>
                                 <li>
-                                    <a href="#">动态</a>
+                                    <a href="#" id="bt_trends">动态</a>
                                 </li>
                                 <li>
                                     <a href="#" id="bt_circle">圈子</a>
@@ -201,8 +201,10 @@
 %>
 <div id="circle">
     <div id="myCircle">
-        <%--<jsp:include page="/WEB-INF/view/circle/circle.jsp"></jsp:include>--%>
     </div>
+</div>
+<div id="trends">
+
 </div>
 <div class="version">
     <div class="versioniv">

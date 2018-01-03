@@ -10,24 +10,14 @@
 <html>
 <head>
     <title>动态</title>
-    <link rel="stylesheet" href="css/uikit.min.css" />
-    <link rel="stylesheet" href="layui/css/layui.css" />
-    <link rel="stylesheet" href="css/uikit.css" />
-    <link rel="stylesheet" href="css/login.css" />
-
-
-    <link rel="stylesheet" href="css/uikit.min.css" />
-    <link rel="stylesheet" href="css/uikit.css" />
-    <link rel="stylesheet" href="css/forumcss.css" />
-
-
-    <link rel="stylesheet" href="css/uikit.min.css" />
-    <link rel="stylesheet" href="css/uikit.css" />
-    <link rel="stylesheet" href="css/forumcss.css" />
+    <link rel="stylesheet" href="/layui/css/layui.css" />
+    <link rel="stylesheet" href="/css/uikit.css" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/forumcss.css" />
     <style>
         img {
             width: auto;
-            height: 30px;
+            /*height: 30px;*/
             box-sizing: border-box;
             border: 0px solid ;
         }

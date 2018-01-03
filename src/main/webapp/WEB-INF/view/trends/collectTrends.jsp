@@ -10,24 +10,14 @@
 <html>
 <head>
     <title>动态</title>
-    <link rel="stylesheet" href="css/uikit.min.css" />
-    <link rel="stylesheet" href="layui/css/layui.css" />
-    <link rel="stylesheet" href="css/uikit.css" />
-    <link rel="stylesheet" href="css/login.css" />
-
-
-    <link rel="stylesheet" href="css/uikit.min.css" />
-    <link rel="stylesheet" href="css/uikit.css" />
-    <link rel="stylesheet" href="css/forumcss.css" />
-
-
-    <link rel="stylesheet" href="css/uikit.min.css" />
-    <link rel="stylesheet" href="css/uikit.css" />
-    <link rel="stylesheet" href="css/forumcss.css" />
+    <link rel="stylesheet" href="/layui/css/layui.css" />
+    <link rel="stylesheet" href="/css/uikit.css" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/forumcss.css" />
     <style>
         img {
             width: auto;
-            height: 30px;
+            /*height: 30px;*/
             box-sizing: border-box;
             border: 0px solid ;
         }
@@ -40,9 +30,9 @@
 <div class="loginmain">
     <div class="lm">
         <ul class="uk-tab" data-uk-tab>
-            <li ><a href="location.href='${pageContext.request.contextPath}/Trends_trendsList.action'">所有动态</a></li>
-            <li><a href=# onclick="location.href='${pageContext.request.contextPath}/Trends_mytrendsList.action'">我的动态</a></li>
-            <li class="uk-active"><a href=# onclick="location.href='regest.html'">收藏动态</a></li>
+            <li ><a href=# onclick="loadTrends()">所有动态</a></li>
+            <li><a href=# onclick="loadMyTrends()">我的动态</a></li>
+            <li class="uk-active"><a href=# onclick="loadCollectTrends()">收藏动态</a></li>
         </ul>
         <div class="lu">
             <button class="layui-btn layui-btn-normal" style="float: right;margin-right: 10px;" id="pushBtn">
