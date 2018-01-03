@@ -313,7 +313,7 @@
                 return;
             }
 
-            // test standard property first
+            // ssh.test standard property first
             if ( typeof docElemStyle[ propName ] === 'string' ) {
                 return propName;
             }
@@ -321,7 +321,7 @@
             // capitalize
             propName = propName.charAt(0).toUpperCase() + propName.slice(1);
 
-            // test vendor specific properties
+            // ssh.test vendor specific properties
             var prefixed;
             for ( var i=0, len = prefixes.length; i < len; i++ ) {
                 prefixed = prefixes[i] + propName;

@@ -80,7 +80,7 @@
             layer.open({
                 type: 2,
                 title: ['发布动态'],
-                content: "${pageContext.request.contextPath}/Trends_pushshow.action",
+                content: "Trends_pushshow.action",
                 area:['60%','60%'],  //宽高
                 resize: false,    //是否允许拉伸
                 scrollbar: false,

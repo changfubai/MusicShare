@@ -4,13 +4,22 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:mysql://localhost:3306/fxweb</property>
+    <property name="connection.url">jdbc:mysql://120.24.37.204:3306/fxweb</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
       <mapping class="ssh.product.model.Product"/>
     <mapping class="ssh.product.model.trends.TrendsEntity"/>
     <mapping resource="ssh/product/model/trends/TrendsEntity.hbm.xml"/>
       <mapping resource="ssh/product/model/trends/CollectEntity.hbm.xml"/>
       <mapping class="ssh.product.model.trends.CollectEntity"/>
+      <mapping class="ssh.product.model.circle.Circle"/>
+    <mapping resource="ssh/product/model/user/UserEntity.hbm.xml"/>
+    <mapping class="ssh.product.model.user.UserEntity"/>
+      <mapping resource="ssh/product/model/circle/CircleEntity.hbm.xml"/>
+      <mapping class="ssh.product.model.circle.CircleEntity"/>
+      <mapping resource="ssh/product/model/circle/JioncircleEntity.hbm.xml"/>
+      <mapping class="ssh.product.model.circle.JioncircleEntity"/>
+      <mapping resource="ssh/product/model/circle/JoincircleEntity.hbm.xml"/>
+      <mapping class="ssh.product.model.circle.JoincircleEntity"/>
       <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

@@ -250,7 +250,7 @@ jQuery.extend({
 
 	noop: function() {},
 
-	// See test/unit/core.js for details concerning isFunction.
+	// See ssh.test/unit/core.js for details concerning isFunction.
 	// Since version 1.3, DOM methods and functions like alert
 	// aren't supported. They return false on IE (#2968).
 	isFunction: function( obj ) {
@@ -1072,7 +1072,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// Support: IE<10
 	// Check if getElementById returns elements by name
 	// The broken getElementById methods don't pick up programatically-set names,
-	// so use a roundabout getElementsByName test
+	// so use a roundabout getElementsByName ssh.test
 	support.getById = assert(function( div ) {
 		docElem.appendChild( div ).id = expando;
 		return !doc.getElementsByName || !doc.getElementsByName( expando ).length;
@@ -1161,7 +1161,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		// Regex strategy adopted from Diego Perini
 		assert(function( div ) {
 			// Select is set to empty string on purpose
-			// This is to test IE's treatment of not explicitly
+			// This is to ssh.test IE's treatment of not explicitly
 			// setting a boolean content attribute,
 			// since its presence should be enough
 			// http://bugs.jquery.com/ticket/12359
@@ -5532,7 +5532,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 				return;
 			}
 
-			// Hook needed; redefine it so that the support test is not executed again.
+			// Hook needed; redefine it so that the support ssh.test is not executed again.
 
 			return (this.get = hookFn).apply( this, arguments );
 		}
@@ -5577,9 +5577,9 @@ function addGetHookIf( conditionFn, hookFn ) {
 	if ( window.getComputedStyle ) {
 		jQuery.extend(support, {
 			pixelPosition: function() {
-				// This test is executed only once but we still do memoizing
+				// This ssh.test is executed only once but we still do memoizing
 				// since we can use the boxSizingReliable pre-computing.
-				// No need to check if the test was already performed, though.
+				// No need to check if the ssh.test was already performed, though.
 				computePixelPositionAndBoxSizingReliable();
 				return pixelPositionVal;
 			},

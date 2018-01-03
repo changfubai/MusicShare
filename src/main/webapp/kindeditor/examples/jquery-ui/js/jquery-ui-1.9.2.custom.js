@@ -1454,7 +1454,7 @@ $.ui.position = {
 	}
 };
 
-// fraction support test
+// fraction support ssh.test
 (function () {
 	var testElement, testElementParent, testElementStyle, offsetLeft, i,
 		body = document.getElementsByTagName( "body" )[ 0 ],
@@ -1809,7 +1809,7 @@ $.widget( "ui.accordion", {
 		if ( heightStyle === "fill" ) {
 			// IE 6 treats height like minHeight, so we need to turn off overflow
 			// in order to get a reliable height
-			// we use the minHeight support test because we assume that only
+			// we use the minHeight support ssh.test because we assume that only
 			// browsers that don't support minHeight will treat height as minHeight
 			if ( !$.support.minHeight ) {
 				overflow = parent.css( "overflow" );
@@ -7032,7 +7032,7 @@ $.effects = {
 
 	var stepHooks = "backgroundColor borderBottomColor borderLeftColor borderRightColor borderTopColor color columnRuleColor outlineColor textDecorationColor textEmphasisColor".split(" "),
 
-	// plusequals test for += 100 -= 100
+	// plusequals ssh.test for += 100 -= 100
 	rplusequals = /^([\-+])=\s*(\d+\.?\d*)/,
 	// a set of RE's that can match strings and generate color tuples.
 	stringParsers = [{
@@ -13628,7 +13628,7 @@ $.widget( "ui.tabs", {
 		if ( heightStyle === "fill" ) {
 			// IE 6 treats height like minHeight, so we need to turn off overflow
 			// in order to get a reliable height
-			// we use the minHeight support test because we assume that only
+			// we use the minHeight support ssh.test because we assume that only
 			// browsers that don't support minHeight will treat height as minHeight
 			if ( !$.support.minHeight ) {
 				overflow = parent.css( "overflow" );

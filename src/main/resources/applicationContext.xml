@@ -14,6 +14,7 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- 指定spring扫描路径，可以选择性过滤，默认是路径下全扫描-->
+    <context:annotation-config />
     <context:component-scan base-package="ssh.*"/>
 
     <!-- 引入属性文件 -->
@@ -50,6 +51,9 @@
     <bean id="CollectAction" class="ssh.product.action.trends.CollectAction" scope="prototype">
         <property name="collectEntityService" ref="collectEntityService"/>
     </bean>
+    <!--<bean id="loginAction" class="ssh.product.action.LoginAction" scope="prototype">-->
+        <!--<property name="userService" ref="userService"/>-->
+    <!--</bean>-->
     <!-- dao注入配置 -->
     <bean id="trendsEntityService" class="ssh.product.service.impl.TrendsEntityServiceImpl" >
         <property name="trendsEntityDao" ref="rendsEntityDao"/>
@@ -57,6 +61,10 @@
     <bean id="collectEntityService" class="ssh.product.service.impl.CollectEntityServiceImpl" >
         <property name="collectEntityDao" ref="collectEntityDao"/>
     </bean>
+    <!--<bean id="userService" class="ssh.product.service.impl.UserServiceImpl" >-->
+        <!--<property name="userDao" ref="userDao"/>-->
+    <!--</bean>-->
+
     <!-- session注入配置 -->
     <bean id="rendsEntityDao" class="ssh.product.dao.impl.TrendsEntityDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
@@ -64,7 +72,9 @@
     <bean id="collectEntityDao" class="ssh.product.dao.impl.CollectEntityDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
+    <!--<bean id="userDao" class="ssh.product.dao.impl.UserDaoImpl">-->
+        <!--<property name="sessionFactory" ref="sessionFactory"/>-->
+    <!--</bean>-->
     <!--<bean id="LoginAction" class="ssh.product.action.LoginAction" scope="prototype">-->
         <!--<property name="userService" ref="UserService"/>-->
     <!--</bean>-->
@@ -82,10 +92,7 @@
         <!-- 注入SessionFactory -->
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    <bean id="userDao" class="java.lang.String"/>
-    <bean id="userService" class="java.lang.String"/>
-
-
+    <tx:annotation-driven transaction-manager="transactionManager"/>
     <!-- 配置事务增强 -->
     <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
         <!--<tx:attributes>-->
@@ -95,7 +102,6 @@
             <!--<tx:method name="delete*" propagation="REQUIRED"/>-->
         <!--</tx:attributes>-->
     <!--</tx:advice>-->
-    <tx:annotation-driven transaction-manager="transactionManager"/>
     <!-- 配置切面 -->
     <!--<aop:config>-->
         <!--&lt;!&ndash; 配置切入点-->

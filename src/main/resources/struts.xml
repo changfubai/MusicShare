@@ -8,13 +8,15 @@
     <package name="default" extends="struts-default" namespace="/">
         <default-action-ref name="default"/>
         <action name="default">
-            <result>/WEB-INF/enter.html</result>
+            <result>WEB-INF/enter.html</result>
         </action>
     </package>
+
     <package name="login" extends="struts-default" namespace="/"  strict-method-invocation="false">
         <action name="Login_*" class="ssh.product.action.LoginAction" method="{1}">
-            <result name="regestview">WEB-INF/view/login/regest.jsp</result>
-            <result name="loginview">WEB-INF/view/login/login.jsp</result>
+            <result name="regestview">/WEB-INF/pages/register.jsp</result>
+            <result name="loginview">WEB-INF/pages/login.jsp</result>
+            <result name="index">WEB-INF/pages/index.jsp</result>
         </action>
     </package>
     <package name="trends" extends="struts-default,json-default" namespace="/"  strict-method-invocation="false">
@@ -46,7 +48,41 @@
             <result name="cutc" type="json">
                 <param name="root">result</param>
             </result>
+            <result name="dissolve" type="json">
+                <param name="root">jsonStr</param>
+            </result>
             <!--<result name="loginview">WEB-INF/view/login/login.jsp</result>-->
+        </action>
+    </package>
+
+    <!--圈子部分-->
+    <package name="circle" extends="struts-default,json-default" namespace="/"  strict-method-invocation="false">
+        <action name="Circle_*" class="ssh.product.action.circle.CircleAction" method="{1}">
+            <result name="circleList">WEB-INF/pages/index.jsp</result>
+            <result name="joinCircleList">WEB-INF/pages/index.jsp</result>
+            <result name="form">WEB-INF/view/circle/formCreateCiecle.jsp</result>
+            <result name="circle">WEB-INF/view/circle/circle.jsp</result>
+            <result name="create" type="json">
+                <param name="root">jsonStr</param>
+            </result>
+            <result name="search" type="json">
+                <param name="root">jsonStr</param>
+            </result>
+            <result name="dissolve" type="json">
+                <param name="root">jsonStr</param>
+            </result>
+
+        </action>
+        <action name="JoinCircle_*" class="ssh.product.action.circle.JoinCircleAction" method="{1}">
+            <!--<result name="circleList">WEB-INF/pages/index.jsp</result>-->
+
+            <result name="join" type="json">
+                <param name="root">jsonStr</param>
+            </result>
+            <result name="quit" type="json">
+                <param name="root">jsonStr</param>
+            </result>
+
         </action>
     </package>
 

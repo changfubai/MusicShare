@@ -1,0 +1,4 @@
+$(function(){
+    $("#circle").hide();
+    initial();
+});
