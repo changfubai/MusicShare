@@ -5,14 +5,25 @@ function initial() {
         if (userId == "" || userId == null) {
             alert("请先登陆？");
         } else {
+            $('.version').hide();
             $('#circle').show();
-            var div = $('#myCircle').html();
-            $.post("Circle_circle",
-                function(data,status){
-                    // alert("Status: " + status);
-                    $('#myCircle').html(data);
-                });
+
+            loadCircle();
+
         }
     });
+    $('#bt_initial').on('click', function () {
+        $('.version').show();
+        $('#circle').hide();
+    });
 
+}
+
+function loadCircle() {
+    $.post("Circle_circle",
+        function(data,status){
+            // alert("Status: " + status);
+            $('#myCircle').html(data);
+            circle();
+        });
 }

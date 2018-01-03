@@ -149,24 +149,31 @@ padding-bottom: 20px;
 /*///*/
 
 .mb2 {
-    margin-bottom: 20px
+    margin-bottom: 20px;
 }
 
-.mb2 a {
-    text-decoration: none;
-    outline: none;
-}
 
 .submit {
-    padding: 15px;
-    margin-top: 20px;
+    /*padding: 15px;*/
+    /*margin-top: 20px;*/
+    width: 400px;
+    height: 46px;
+    font-size: 20px;
+    border-radius: 50px;
+    border: none;
+    background-color:#0096e6 ;
     display: block;
 }
 
-.act-but {
-    line-height: 20px;
-    text-align: center;
-    font-size: 20px;
-    border-radius: 50px;
-    background: #0096e6;
+/*!*.act-but {*!*/
+    /*!*line-height: 20px;*!*/
+    /*!*text-align: center;*!*/
+    /*!*font-size: 20px;*!*/
+    /*!*border-radius: 50px;*!*/
+    /*!*background: #0096e6;*!*/
+/*}*/
+.errorClass{
+    margin-top: 5px;
+    font: 14px "microsoft yahei", Helvetica, Tahoma, Arial, "Microsoft jhengHei";
+
 }

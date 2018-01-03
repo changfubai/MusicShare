@@ -11,6 +11,13 @@
     <mapping resource="ssh/product/model/trends/TrendsEntity.hbm.xml"/>
       <mapping resource="ssh/product/model/trends/CollectEntity.hbm.xml"/>
       <mapping class="ssh.product.model.trends.CollectEntity"/>
+      <mapping class="ssh.product.model.user.UserEntity"/>
+    <mapping resource="ssh/product/model/user/UserEntity.hbm.xml"/>
+      <mapping class="ssh.product.model.song.CategoryEntity"/>
+      <mapping resource="ssh/product/model/song/CategoryEntity.hbm.xml"/>
+      <mapping resource="ssh/product/model/song/SongEntity.hbm.xml"/>
+      <mapping class="ssh.product.model.song.SongEntity"/>
+
       <mapping class="ssh.product.model.circle.Circle"/>
     <mapping resource="ssh/product/model/user/UserEntity.hbm.xml"/>
     <mapping class="ssh.product.model.user.UserEntity"/>

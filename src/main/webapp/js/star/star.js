@@ -255,7 +255,6 @@
             }
             ctx.beginPath(); //开始一条路径
             for (var i = 0; i < 5; i++) {
-                alert('华星星');
                 ctx.lineTo(Math.cos((18 + 72 * i) / 180 * Math.PI) * _this.bigRadius + _this.pos.x, -Math.sin((18 + 72 * i) / 180 * Math.PI) * _this.bigRadius + _this.pos.y);
                 ctx.lineTo(Math.cos((54 + 72 * i) / 180 * Math.PI) * _this.smallRadius + _this.pos.x, -Math.sin((54 + 72 * i) / 180 * Math.PI) * _this.smallRadius + _this.pos.y);
             }

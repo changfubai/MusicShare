@@ -10,15 +10,7 @@
 <html>
 <head>
 </head>
-<script src="/js/jquery-2.1.0.js"></script>
-<script src="/js/uikit.js"></script>
-<script src="/layui/layui.js"></script>
-<script src="/js/circle/dateFormat.js"></script>
-<script src="/js/circle/circle.js"></script>
-<link rel="stylesheet" href="/css/uikit.css" />
-<%--<link rel="stylesheet" href="/css/uikit.css" />--%>
-<link rel="stylesheet" href="/layui/css/layui.css" />
-<link rel="stylesheet" href="/css/circle/circle_all.css"/>
+
 <body class="tm-background">
 <div class="tm-middle">
     <div class="uk-container uk-container-center">

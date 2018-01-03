@@ -14,7 +14,6 @@ import ssh.product.model.circle.JoincircleEntity;
 import ssh.product.model.user.UserEntity;
 import ssh.product.service.circle.CircleService;
 import ssh.product.service.circle.JoinCircleService;
-import ssh.product.service.user.UserService;
 
 import javax.annotation.Resource;
 import java.lang.reflect.ParameterizedType;
@@ -39,8 +38,6 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,Session
     protected String jsonStr = null;
 
     protected  Map<String, Object> map = new HashMap<String, Object>();
-    @Resource
-    protected UserService userService;
 
     @Resource
     protected CircleService circleService;

@@ -51,9 +51,6 @@
     <bean id="CollectAction" class="ssh.product.action.trends.CollectAction" scope="prototype">
         <property name="collectEntityService" ref="collectEntityService"/>
     </bean>
-    <!--<bean id="loginAction" class="ssh.product.action.LoginAction" scope="prototype">-->
-        <!--<property name="userService" ref="userService"/>-->
-    <!--</bean>-->
     <!-- dao注入配置 -->
     <bean id="trendsEntityService" class="ssh.product.service.impl.TrendsEntityServiceImpl" >
         <property name="trendsEntityDao" ref="rendsEntityDao"/>
@@ -61,10 +58,6 @@
     <bean id="collectEntityService" class="ssh.product.service.impl.CollectEntityServiceImpl" >
         <property name="collectEntityDao" ref="collectEntityDao"/>
     </bean>
-    <!--<bean id="userService" class="ssh.product.service.impl.UserServiceImpl" >-->
-        <!--<property name="userDao" ref="userDao"/>-->
-    <!--</bean>-->
-
     <!-- session注入配置 -->
     <bean id="rendsEntityDao" class="ssh.product.dao.impl.TrendsEntityDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
@@ -72,27 +65,42 @@
     <bean id="collectEntityDao" class="ssh.product.dao.impl.CollectEntityDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    <!--<bean id="userDao" class="ssh.product.dao.impl.UserDaoImpl">-->
-        <!--<property name="sessionFactory" ref="sessionFactory"/>-->
-    <!--</bean>-->
-    <!--<bean id="LoginAction" class="ssh.product.action.LoginAction" scope="prototype">-->
-        <!--<property name="userService" ref="UserService"/>-->
-    <!--</bean>-->
+
+
+    <!-- 2017/12/21 10:44  fangzq写的依赖注入方式 -->
+    <!-- userEntityDao-->
+    <bean id="userEntityDao" class="ssh.product.dao.impl.UserEntityDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+
+    <!-- 获取歌曲类别的categoryEntityDao -->
+    <bean id="categoryEntityDao" class="ssh.product.dao.impl.CategoryEntityDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+
+    <!-- 获取歌曲的songEntityDao -->
+    <bean id="songEntityDao" class="ssh.product.dao.impl.SongEntityDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+
+
     <!--&lt;!&ndash;配置Service层的类&ndash;&gt;-->
-    <!--<bean id="UserService" class="ssh.product.service.impl.UserServiceImpl">-->
-        <!--<property name="userDao" ref="UserDao"/>-->
-    <!--</bean>-->
+
     <!--&lt;!&ndash;配置Dao层的类&ndash;&gt;-->
-    <!--<bean id="UserDao" class="ssh.product.dao.impl.UserDaoImpl">-->
-        <!--<property name="sessionFactory" ref="sessionFactory"/>-->
-    <!--</bean>-->
+
 
     <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <!-- 注入SessionFactory -->
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+
     <!-- 配置事务增强 -->
     <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
         <!--<tx:attributes>-->
@@ -102,6 +110,7 @@
             <!--<tx:method name="delete*" propagation="REQUIRED"/>-->
         <!--</tx:attributes>-->
     <!--</tx:advice>-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
     <!-- 配置切面 -->
     <!--<aop:config>-->
         <!--&lt;!&ndash; 配置切入点-->
