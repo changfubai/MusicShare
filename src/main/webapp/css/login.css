@@ -54,12 +54,27 @@ padding-bottom: 20px;
 时间：2017/12/4
 
 */
-
+ .loginmain{
+     width: 100%;
+     overflow:hidden;
+     padding-top: 10px;
+     height: 85vh;
+ }
+ .lm{
+     width: 870px;
+     height: auto;
+     margin: 100px auto 0px;
+     background-color: #FFFFFF;
+     padding-left: 50px;
+     padding-right: 50px;
+ }
+ .lu{
+     margin-top: 30px;
+ }
 * {
     margin: 0;
     padding: 0;
 }
-
 
 #largeHeader {
     background: url('../images/login/login_bg.jpg');

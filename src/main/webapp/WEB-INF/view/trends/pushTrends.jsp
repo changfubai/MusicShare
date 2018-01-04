@@ -50,16 +50,21 @@
     });
 </script>
 </html>
-<script src="layui/layui.js"></script>
-<script src="js/jquery-2.1.0.js"></script>
+<script src="/layui/layui.js"></script>
+<script src="/js/jquery-2.1.0.js"></script>
 <script>
-    //Demo
-    layui.use('form', function(){
-        var form = layui.form();
-        form.on('submit(pushBtn)', function(data) {
+    layui.use(['form','layer','jquery'], function(){
+        var form = layui.form,
+            layer = layui.layer,
+            $ = layui.jquery;
+
+        form.on('submit(pushBtn)', function(data){
+            var myUrl = "Trends_pushTrends";
+//            + "?" + 'name="' + data.field.name + +'"\&\&desc="'
+//                + data.field.desc + '"';
 
             $.ajax({
-                url:'${pageContext.request.contextPath}/Trends_pushTrends.action',
+                url: myUrl,
                 type: 'POST',
                 data: data.field,
                 dataType:'json',
@@ -69,14 +74,35 @@
                 success: function(data){
                     var json = eval("("+data+")");
                     if (json.status==1){
-                        layer.msg(json.msg, {time: 1000},function(){parent.location.href="${pageContext.request.contextPath}/Trends_trendsList.action";});
+                        layer.msg(json.msg, {time: 1000},function(){parent.location.href="Trends_trendsList.action";});
                     }else{
                         layer.msg(json.msgl, {time: 1000});
                     }
                 }
             });
-
             return false;
         });
+
+        <%--form.on('submit(pushBtn)', function(data) {--%>
+
+            <%--$.ajax({--%>
+                <%--url:'${pageContext.request.contextPath}/Trends_pushTrends.action',--%>
+                <%--type: 'POST',--%>
+                <%--data: data.field,--%>
+                <%--error: function(request){--%>
+                    <%--layer.msg("请求服务器超时", {time: 1000, icon: 6});--%>
+                <%--},--%>
+                <%--success: function(data){--%>
+                    <%--var json = eval("("+data+")");--%>
+                    <%--if (json.status==1){--%>
+                        <%--layer.msg(json.msg, {time: 1000},function(){parent.location.href="${pageContext.request.contextPath}/Trends_trendsList.action";});--%>
+                    <%--}else{--%>
+                        <%--layer.msg(json.msgl, {time: 1000});--%>
+                    <%--}--%>
+                <%--}--%>
+            <%--});--%>
+
+            <%--return false;--%>
+        <%--});--%>
     });
 </script>

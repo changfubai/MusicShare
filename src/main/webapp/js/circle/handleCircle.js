@@ -8,6 +8,7 @@ function initial() {
             $('.version').hide();
             $('#trends').hide();
             $('#circle').show();
+            $('#switcher').hide();
             loadCircle();
         }
     });
@@ -17,14 +18,12 @@ function initial() {
         if (userId == "" || userId == null) {
             alert("请先登陆？");
         } else {
-            $('.version').hide();
-            $('#trends').show();
-            $('#circle').hide();
             loadTrends();
         }
     });
     $('#bt_initial').on('click', function () {
         $('.version').show();
+        $('#switcher').show();
         $('#trends').hide();
         $('#circle').hide();
     });
@@ -32,11 +31,7 @@ function initial() {
 }
 
 function loadTrends() {
-    $.post("Trends_trendsList",
-        function(data,status){
-            // alert("Status: " + status);
-            $('#trends').html(data);
-        });
+    parent.location.href="Trends_trendsList.action";
 }
 function loadCircle() {
     $.post("Circle_circle",
@@ -50,13 +45,13 @@ function loadMyTrends() {
     $.post("Trends_collectTrends",
         function(data,status){
             // alert("Status: " + status);
-            $('#trends').html(data);
+            $('#mytrends').html(data);
         });
 }
 function loadCollectTrends() {
     $.post("Trends_collectTrends",
         function(data,status){
             // alert("Status: " + status);
-            $('#trends').html(data);
+            $('#mycollecttrends').html(data);
         });
 }

@@ -20,6 +20,7 @@
     <%--butong--%>
     <script src="/js/jquery-2.1.0.js"></script>
     <script src="/js/uikit.js"></script>
+    <script src="js/circle/Thetrends.js"></script>
     <script src="/layui/layui.js"></script>
     <script src="/js/circle/dateFormat.js"></script>
     <script src="/js/circle/circle.js"></script>
@@ -203,9 +204,15 @@
     <div id="myCircle">
     </div>
 </div>
-<div id="trends">
+<%--<div id="trends">--%>
+    <%--<div id="trendslist">--%>
 
-</div>
+    <%--</div>--%>
+<%--</div>--%>
+<%--<div id="mytrends">--%>
+<%--</div>--%>
+<%--<div id="mycollecttrends">--%>
+<%--</div>--%>
 <div class="version">
     <div class="versioniv">
 

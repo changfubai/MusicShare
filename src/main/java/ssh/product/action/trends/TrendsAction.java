@@ -13,6 +13,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import ssh.product.model.trends.TrendsEntity;
+import ssh.product.model.trends.TrendsTemp;
 import ssh.product.model.user.UserEntity;
 import ssh.product.service.trends.TrendsEntityService;
 
@@ -86,6 +87,7 @@ public class TrendsAction extends ActionSupport implements SessionAware,ModelDri
             Date time=new Date(untildate.getTime());
             trendsEntity.setUpdateTime(time);
             trendsEntity.setUserId(user.getId());
+            trendsEntity.setStar(1);
             trendsEntityService.pushTrends(trendsEntity);
 
             map.put("status",1);
@@ -102,7 +104,7 @@ public class TrendsAction extends ActionSupport implements SessionAware,ModelDri
     }
     //展示所有的动态
     public String trendsList(){
-        List<TrendsEntity> list= trendsEntityService.TrendsList();
+        List<TrendsTemp> list= trendsEntityService.TrendsList();
 //
         ActionContext.getContext().getValueStack().set("list", list);
         return "trendslist";
@@ -110,13 +112,12 @@ public class TrendsAction extends ActionSupport implements SessionAware,ModelDri
     //展示自己发布的动态
     public String mytrendsList(){
         //根据session获取登陆人的id
-        int user_id = 0;
         UserEntity user = (UserEntity) session.get("user");
 
-        if (user != null) {
-            user_id = user.getId();
-        }
-        List<TrendsEntity> myList=trendsEntityService.MyTrendsList(user_id);
+//        int user_id= user.getId();
+        int user_id=1;
+        System.out.println(user_id);
+        List<TrendsTemp> myList=trendsEntityService.MyTrendsList(user_id);
         ActionContext.getContext().getValueStack().set("mylist", myList);
         return "mytrendslist";
     }
@@ -144,13 +145,13 @@ public class TrendsAction extends ActionSupport implements SessionAware,ModelDri
     }
     //收藏的动态
     public String collectTrends(){
-        int user_id = 0;
-        UserEntity user = (UserEntity) session.get("user");
-
-        if (user != null) {
-            user_id = user.getId();
-        }
-        List mycollect=trendsEntityService.MyCollect(user_id);
+        int user_id = 2;
+//        UserEntity user = (UserEntity) session.get("user");
+//
+//        if (user != null) {
+//            user_id = user.getId();
+//        }
+        List<TrendsTemp> mycollect=trendsEntityService.MyCollect(user_id);
 //        System.out.println(mycollect.toArray());
         ActionContext.getContext().getValueStack().set("mycollect", mycollect);
         return "collect";
