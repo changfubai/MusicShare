@@ -27,11 +27,9 @@ import java.util.*;
 public class TrendsAction extends ActionSupport implements SessionAware,ModelDriven<TrendsEntity>{
     private TrendsEntity trendsEntity;
     private String result;
-
     public String getResult() {
         return result;
     }
-
     public void setResult(String result) {
         this.result = result;
     }
@@ -114,9 +112,10 @@ public class TrendsAction extends ActionSupport implements SessionAware,ModelDri
         //根据session获取登陆人的id
         UserEntity user = (UserEntity) session.get("user");
 
-//        int user_id= user.getId();
-        int user_id=1;
+        int user_id= user.getId();
         System.out.println(user_id);
+//        int user_id=1;
+//        System.out.println(user_id);
         List<TrendsTemp> myList=trendsEntityService.MyTrendsList(user_id);
         ActionContext.getContext().getValueStack().set("mylist", myList);
         return "mytrendslist";
@@ -145,12 +144,9 @@ public class TrendsAction extends ActionSupport implements SessionAware,ModelDri
     }
     //收藏的动态
     public String collectTrends(){
-        int user_id = 2;
-//        UserEntity user = (UserEntity) session.get("user");
-//
-//        if (user != null) {
-//            user_id = user.getId();
-//        }
+        UserEntity user = (UserEntity) session.get("user");
+            int user_id = user.getId();
+//            System.out.println(user_id);
         List<TrendsTemp> mycollect=trendsEntityService.MyCollect(user_id);
 //        System.out.println(mycollect.toArray());
         ActionContext.getContext().getValueStack().set("mycollect", mycollect);

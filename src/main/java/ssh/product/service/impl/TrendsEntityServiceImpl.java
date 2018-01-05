@@ -80,11 +80,12 @@ public class TrendsEntityServiceImpl implements TrendsEntityService {
             tre= new TrendsTemp();
             Object[] object = (Object[])stuList.get(i);
             tre.setName((String) object[0]);
-            tre.setPhoto((String) object[1]);
-            tre.setId((Integer) object[2]);
-            tre.setContent((String) object[3]);
-            tre.setStar((Integer) object[4]);
-            tre.setUpdateTime((Date) object[5]);
+            tre.setUserId((Integer) object[1]);
+            tre.setPhoto((String) object[2]);
+            tre.setId((Integer) object[3]);
+            tre.setContent((String) object[4]);
+            tre.setStar((Integer) object[5]);
+            tre.setUpdateTime((Date) object[6]);
             mylist.add(tre); // 最终封装在list中 传到前台。
         }
         return mylist;

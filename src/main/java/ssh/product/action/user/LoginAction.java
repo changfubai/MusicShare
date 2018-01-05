@@ -58,7 +58,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ModelDriv
         }else {
             System.out.print( "登录成功！");
             session.clear();
-            session.put("user", user);
+            session.put("user", curuser);
             result = "loginSuccess";
         }
         return result;

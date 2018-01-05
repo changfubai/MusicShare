@@ -101,7 +101,7 @@
                     <article class="uk-comment">
                         <header class="uk-comment-header">
                             <img class="uk-comment-avatar" src="images/02.jpg" alt="" style="width:70px; height:70px; border-radius:50%; overflow:hidden;">
-                            <h4 class="uk-comment-title"><s:property value="#e.id"/></h4>
+                            <h4 class="uk-comment-title"><s:property value="#e.name"/></h4>
                             <div class="uk-comment-meta"></div>
                         </header>
                         <div class="uk-comment-body">

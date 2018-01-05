@@ -54,7 +54,7 @@ public class TrendsEntityDaoImpl extends HibernateDaoSupport implements TrendsEn
     //展示全部动态
     public  List TrendsList() {
         Session session= sessionFactory.getCurrentSession();
-        Query query = session.createSQLQuery("select user.name,user.photo,trends .id,trends.content,trends .star,trends.update_time from trends,user  where trends.user_id=user .id ");
+        Query query = session.createSQLQuery("select user.name,trends.user_id,user.photo,trends .id,trends.content,trends .star,trends.update_time from trends,user  where trends.user_id=user .id ");
         List list=query.list();
 //        List<TrendsEntity> list = (List<TrendsEntity>) this.getHibernateTemplate().find("from TrendsEntity ");
         return list;
@@ -77,7 +77,7 @@ public class TrendsEntityDaoImpl extends HibernateDaoSupport implements TrendsEn
     public List MyCollect(Integer user_id) {
 //        List<TrendsEntity> mycollect=new ArrayList<>();
         Session session= sessionFactory.getCurrentSession();
-        Query query = session.createSQLQuery("select user.name,user.photo,trends .id,trends.content,trends .star,trends.update_time from trends,collect,user  where trends.id=collect .trends_id and collect.user_id=user.id  and collect.user_id="+user_id);
+        Query query = session.createSQLQuery("select user.name,user.photo,trends .id,trends.content,trends .star,trends.update_time from trends,collect,user  where trends.id=collect .trends_id and trends.user_id=user.id  and collect.user_id="+user_id);
         List myList=query.list();
 //        List myList=  this.getHibernateTemplate().find("from TrendsEntity trends,CollectEntity collect where trends.id=collect.trendsId and collect.userId=?",user_id);
 
@@ -89,7 +89,7 @@ public class TrendsEntityDaoImpl extends HibernateDaoSupport implements TrendsEn
     //展示自己发布的动态
     public List MyTrendsList(Integer user_id) {
         Session session= sessionFactory.getCurrentSession();
-        Query query = session.createSQLQuery("select user.name,user.photo,trends .id,trends.content,trends .star,trends.update_time from trends,user  where user.id= "+user_id);
+        Query query = session.createSQLQuery("select user.name,user.photo,trends .id,trends.content,trends .star,trends.update_time from trends,user  where trends.user_id=user.id and trends.user_id= "+user_id);
         List list=query.list();
 //        List<TrendsEntity> list = (List<TrendsEntity>) this.getHibernateTemplate().find("from TrendsEntity ");
         return list;

@@ -107,7 +107,7 @@
                     <div class="uk-comment-body">
                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property escapeHtml="false" value="#e.content"/>
                     </div>
-                    <a href="javascript:;" class="uk-icon-hover uk-icon-heart-o collect" data-id="<s:property value="#e.id"/>" data-userid="<s:property value="2"/>" style="float: right; margin-right: 10px; margin-top: 20px;" title="点击收藏"></a>
+                    <a href="javascript:;" class="uk-icon-hover uk-icon-heart-o collect" data-id="<s:property value="#e.id"/>" data-userid="<s:property value="#e.userId"/>" style="float: right; margin-right: 10px; margin-top: 20px;" title="点击收藏"></a>
                     <a href="javascript:;" class="uk-icon-hover uk-icon-thumbs-o-up thumb" data-id="<s:property value="#e.id"/>" style="float: right; margin-right: 15px; margin-top: 20px;" title="已被点赞数"><s:property value="#e.star"/></a>
                     <a href="" class="uk-icon-hover uk-icon-commenting-o" style="float: right; margin-right: 20px; margin-top: 20px;" title="点击评论"></a>
                 </article>
