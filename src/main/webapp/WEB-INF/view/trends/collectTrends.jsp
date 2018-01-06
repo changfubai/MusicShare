@@ -73,7 +73,8 @@
                                         <li><a href="register_page.action">注册</a></li>
                                     </s:if>
                                     <s:else>
-                                        <a href= >已登录</a>
+                                        <li><i>${user.name}</i></li>
+                                        <li><a href="login_exit.action" >退出登录</a></li>
                                     </s:else>
                                 </ul>
                             </td>

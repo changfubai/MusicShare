@@ -20,7 +20,10 @@ public class LoginAction extends ActionSupport implements SessionAware,ModelDriv
     /* 访问注册页面*/
     public String page() {
         return "loginPage";
-
+    }
+    public String exit() {
+        session.remove("user");
+        return "loginSuccess";
     }
 
     /* 点击'注册'按钮之后，验证功能
