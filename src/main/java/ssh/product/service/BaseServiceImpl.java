@@ -30,9 +30,9 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 
 
     public BaseServiceImpl() {
-        System.out.println("当前服务类" + this);
-        System.out.println("超类：" + this.getClass().getSuperclass());
-        System.out.println("当前实例：" + this.getClass().getGenericSuperclass());
+        //System.out.println("当前服务类" + this);
+        //System.out.println("超类：" + this.getClass().getSuperclass());
+        //System.out.println("当前实例：" + this.getClass().getGenericSuperclass());
         ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
         clazz = (Class)type.getActualTypeArguments()[0];
 

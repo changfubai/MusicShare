@@ -20,12 +20,12 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
     private HibernateTemplate template;
 
     public BaseDaoImpl() {
-        System.out.println("当前类：" + this);
-        System.out.println("父类：" + this.getClass().getSuperclass());
-        System.out.println("当前实例：" + this.getClass().getGenericSuperclass());
+        //System.out.println("当前类：" + this);
+        //System.out.println("父类：" + this.getClass().getSuperclass());
+        //System.out.println("当前实例：" + this.getClass().getGenericSuperclass());
         if (this.equals(BaseDaoImpl.this)) {
             //this.getClass().
-            System.out.println("=====");
+            //System.out.println("=====");
 
         }else{
             ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();

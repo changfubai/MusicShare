@@ -58,13 +58,13 @@ public class CommentAction extends ActionSupport implements SessionAware,ModelDr
         commentEntityList=commentEntityService.updateTrendComment(Integer.parseInt(ctrendid));
        ActionContext.getContext().getValueStack().set("commentlist",commentEntityList );
        //以下为测试输出在控制台的
-        System.out.println("Size of the valueStack: " + ActionContext.getContext().getValueStack().findValue("user_id"));
-        System.out.println("获取的cid："+ctrendid);
+       // System.out.println("Size of the valueStack: " + ActionContext.getContext().getValueStack().findValue("user_id"));
+       // System.out.println("获取的cid："+ctrendid);
         Iterator it = commentEntityList.iterator();
         while(it.hasNext()){
             CommentEntity stu = (CommentEntity)it.next();
             String name = stu.getContent();//得到了里面的元素的属性了
-            System.out.println("action内容:"+stu.getContent());
+            //System.out.println("action内容:"+stu.getContent());
         }
         return "clist";
     }
@@ -74,7 +74,7 @@ public class CommentAction extends ActionSupport implements SessionAware,ModelDr
         HttpServletRequest request =ServletActionContext.getRequest();
         String d=request.getParameter("delId");
         int cDelId=Integer.parseInt(d);
-        System.out.println("确认删除前获得的要删除的评论的id"+cDelId);
+        //System.out.println("确认删除前获得的要删除的评论的id"+cDelId);
         ActionContext.getContext().getValueStack().set("cDelId",cDelId );
         return "isDel";
     }
@@ -84,15 +84,15 @@ public class CommentAction extends ActionSupport implements SessionAware,ModelDr
         HttpServletRequest request =ServletActionContext.getRequest();
         String d=request.getParameter("cDelId");
         int c=Integer.parseInt(d);
-        System.out.println("确认删除后获得的要删除的评论的id"+c);
+        //System.out.println("确认删除后获得的要删除的评论的id"+c);
         commentEntity=commentEntityService.findtIdBycId(c);
         int trendId=commentEntity.getTrends_id();
-        System.out.println("获得删除评论的所属动态的id："+trendId);
+        //System.out.println("获得删除评论的所属动态的id："+trendId);
         commentEntityList=commentEntityService.updateTrendComment(trendId);
         ActionContext.getContext().getValueStack().set("commentlist",commentEntityList );
-        System.out.println("获得评论数组");
+        //System.out.println("获得评论数组");
         this.commentEntityService.delComment(c);
-        System.out.println("完成删除");
+        //System.out.println("完成删除");
         result="删除成功！";
         return "cdelete";
     }
@@ -103,7 +103,7 @@ public class CommentAction extends ActionSupport implements SessionAware,ModelDr
         String d=request.getParameter("id");
 //        int c=Integer.parseInt(d);
 //        int rc=commentEntity.getId();
-        System.out.println("write:获得被回复评论的id:"+d);
+//        System.out.println("write:获得被回复评论的id:"+d);
         ActionContext.getContext().getValueStack().set("repliedId",d );
         return "writec";
     }
@@ -117,20 +117,20 @@ public class CommentAction extends ActionSupport implements SessionAware,ModelDr
         Timestamp ts = Timestamp.valueOf(time);
 //        Timestamp timeStamp = new Timestamp(date.getTime());     //   讲日期时间转换为数据库中的timestamp类型
 
-        System.out.println("action中获取的time为："+ts);
+        //System.out.println("action中获取的time为："+ts);
 
         //获得被回复人id
         HttpServletRequest request =ServletActionContext.getRequest();
         String d=request.getParameter("repliedId");
         String content=commentEntity.getContent();
-        System.out.println("write to：获得写的评论内容："+content);
+        //System.out.println("write to：获得写的评论内容："+content);
         if (content==null||content.length()<=0){
             result="回复内容不能为空！";
             return "writeto";
         }
-        System.out.println("write to:获得被回复人的id："+d);
+        //System.out.println("write to:获得被回复人的id："+d);
         String t=request.getParameter("wbytrend");
-        System.out.println("write:获得被点击的动态的id:"+t);
+        //System.out.println("write:获得被点击的动态的id:"+t);
 
         //通过判断取得的被回复人id与点击动态列表上取得的动态id哪个不为空，判断点击位置，并进行不同操作
         if (d!=null&&d.length()>0){
@@ -143,7 +143,7 @@ public class CommentAction extends ActionSupport implements SessionAware,ModelDr
             commentEntity.setTrends_id(Integer.parseInt(t));
             commentEntity.setParent(tuserId.getId());
         }else {
-            System.out.println("获取被回复对象失败！");
+            //System.out.println("获取被回复对象失败！");
             result="回复失败！请重试";
             return "writeto";
         }
@@ -163,7 +163,7 @@ public class CommentAction extends ActionSupport implements SessionAware,ModelDr
     public String WriteByTrend(){
         HttpServletRequest request =ServletActionContext.getRequest();
         String tId=request.getParameter("id");
-        System.out.println("write:获得被回复动态的id:"+tId);
+        //System.out.println("write:获得被回复动态的id:"+tId);
         ActionContext.getContext().getValueStack().set("wbytrend",tId );
         return "wTyTrend";
     }
