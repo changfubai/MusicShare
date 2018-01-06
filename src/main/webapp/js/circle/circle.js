@@ -60,30 +60,30 @@ function circle() {
             });
         });
 
-        // 获取圈子成员动态
-        $('.getAll').on('click', function () {
-            var id = $(this).data('id');
-            $.ajax({
-                url: '${pageContext.request.contextPath}/Trends_thumbTrends.action',
-                type: 'GET',
-                data: {id: id},
-                error: function (request) {
-                    layer.msg("请求服务器超时", {time: 1000, icon: 6});
-                },
-                success: function (data) {
-                    var json = eval("(" + data + ")");
-                    if (json.status == 1) {
-                        layer.msg(json.msg, {time: 1000, icon: 6}, function () {
-                            loadCircle();
-                            // parent.location.href = "${pageContext.request.contextPath}/Trends_trendsList.action";
-                        });
-                    } else {
-                        layer.msg(json.msgl, {time: 1000});
-                    }
-                    return false;
-                }
-            });
-        });
+        // // 获取圈子成员动态
+        // $('.getAll').on('click', function () {
+        //     var id = $(this).data('id');
+        //     $.ajax({
+        //         url: '${pageContext.request.contextPath}/Trends_thumbTrends.action',
+        //         type: 'GET',
+        //         data: {id: id},
+        //         error: function (request) {
+        //             layer.msg("请求服务器超时", {time: 1000, icon: 6});
+        //         },
+        //         success: function (data) {
+        //             var json = eval("(" + data + ")");
+        //             if (json.status == 1) {
+        //                 layer.msg(json.msg, {time: 1000, icon: 6}, function () {
+        //                     loadCircle();
+        //                     // parent.location.href = "${pageContext.request.contextPath}/Trends_trendsList.action";
+        //                 });
+        //             } else {
+        //                 layer.msg(json.msgl, {time: 1000});
+        //             }
+        //             return false;
+        //         }
+        //     });
+        // });
         // 退出圈子
         $('.quitCircle').on('click', function () {
             var id = $(this).data('id');
@@ -132,7 +132,7 @@ function circle() {
                 success: function (data) {
                     var json = eval("(" + data + ")");
                     if (json.status == 1) {
-                        layer.msg(json.msg, {time: 2000, icon: 6, anim:5}, function () {
+                        layer.msg(json.msg, {time: 2000, icon: 6, anim: 5}, function () {
                             loadCircle();
                         });
                     } else {
@@ -144,16 +144,16 @@ function circle() {
         });
 
         // 搜索可加入的圈子
-        form.on('submit(search)', function(data){
+        form.on('submit(search)', function (data) {
             $.ajax({
                 url: url_search,
                 type: 'POST',
                 data: data.field,
-                dataType:'json',
-                error: function(request){
+                dataType: 'json',
+                error: function (request) {
                     layer.msg("请求服务器超时", {time: 1000, icon: 6});
                 },
-                success: function(data){
+                success: function (data) {
                     if (data == "") {
                         var html = "<h1>哇，所有的圈子都被你涉足啦@！！@</h1>";
                         $("#searchResult").empty();
@@ -171,10 +171,10 @@ function circle() {
                         if (i % 3 == 1) {
                             html += "uk-panel-box-primary";
                         }
-                        html += "\"><h2 class=\"uk-panel-title getAll\" data-id=\""+ obj.id +"\" style=\"cursor:hand\">"+ obj.name+"</h2>"
-                            + "<span href=\"javascript:;\" data-id=\""+ obj.id +"\" class=\"layui-btn layui-btn-radius layui-btn-mini uk-position-top-right joinCircle\">"
+                        html += "\"><h2 class=\"uk-panel-title getAll\" data-id=\"" + obj.id + "\" style=\"cursor:hand\">" + obj.name + "</h2>"
+                            + "<span href=\"javascript:;\" data-id=\"" + obj.id + "\" class=\"layui-btn layui-btn-radius layui-btn-mini uk-position-top-right joinCircle\">"
                             + "<i class=\"layui-icon\">&#xe608;</i>加入"
-                            + "</span><h4 class=\"uk-navbar-nav-subtitle\">创建于" + new Date(Number(time)).Format("yyyy-MM-dd") +"</h4>"
+                            + "</span><h4 class=\"uk-navbar-nav-subtitle\">创建于" + new Date(Number(time)).Format("yyyy-MM-dd") + "</h4>"
                             + obj.description
                             + "</div></div>";
                     }
