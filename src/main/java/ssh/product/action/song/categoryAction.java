@@ -35,6 +35,9 @@ public class categoryAction  extends ActionSupport {
 
     //得到商品分类的目录
     public String execute() throws Exception{
+        if (session.getAttribute("info") != null) {
+            return "success";
+        }
        String[] info=new String[500];
         String str="";
         /*

@@ -198,7 +198,7 @@
     for (String str : infoList) {
         if (str != null) {
             String[] str1 = str.split("#"); //得到类别
-            System.out.println("类别:" + str1[0]);
+//            System.out.println("类别:" + str1[0]);
 %>
 <div id="circle">
     <div id="myCircle">
@@ -226,7 +226,7 @@
                 String[] str2 = str1[1].split(";"); //得到一组信息
                 for (int j = 0; j < str2.length; j++) {
                     String[] str3 = str2[j].split(",");//
-                    System.out.println("商品ID：" + str3[0] + " 名字:" + str3[1] + " 照片:" + str3[2]);
+//                    System.out.println("商品ID：" + str3[0] + " 名字:" + str3[1] + " 照片:" + str3[2]);
                     request.setAttribute("id", str3[0]);
                     //	if ((k+5) % 4 == 1) {
                     if (count % 4 == 1) {
