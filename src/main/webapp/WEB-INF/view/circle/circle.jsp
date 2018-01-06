@@ -11,8 +11,8 @@
 <head>
 </head>
 
-<body class="tm-background">
-<div class="tm-middle">
+<body class="">
+<div class="" style="margin-top: 100px">
     <div class="uk-container uk-container-center">
         <div class="uk-grid" data-uk-grid-margin>
             <h1 class="uk-article-title">我创建的圈子</h1>
@@ -21,9 +21,9 @@
                 <i class="layui-icon">&#xe608;</i> 创建圈子
             </span>
             <div class="uk-width-1-1 uk-margin uk-clearfix">
-                <div class="uk-grid uk-grid-match uk-grid-width-1-1 uk-grid-width-medium-1-3 " data-uk-grid-margin>
+                <div class="uk-grid uk-grid-match uk-grid-width-1-1 uk-grid-width-medium-1-3 " >
                     <s:iterator value="#session.circleList" var="e" status='st'>
-                        <div class="uk-animation-scale-down uk-animation-10">
+                        <div class="uk-animation-scale-down uk-animation-10" style="padding-top: 30px">
                             <div class="uk-panel uk-panel-box uk-animation-slide-bottom uk-animation-10
                             <s:if test="#st.index % 3 == 1 ">
                             uk-panel-box-primary</s:if>">
@@ -46,9 +46,9 @@
             <h1 class="uk-article-title">我加入的圈子</h1>
             <span class="gap"></span>
             <div class="uk-width-1-1 uk-margin uk-clearfix">
-                <div class="uk-grid uk-grid-match uk-grid-width-1-1 uk-grid-width-medium-1-3 " data-uk-grid-margin>
+                <div class="uk-grid uk-grid-match uk-grid-width-1-1 uk-grid-width-medium-1-3 ">
                     <s:iterator value="#session.circlesList" var="e" status='st'>
-                        <div class="uk-animation-scale-down uk-animation-10">
+                        <div class="uk-animation-scale-down uk-animation-10" style="padding-top: 30px">
                             <div class="uk-panel uk-panel-box uk-animation-slide-bottom uk-animation-10
                             <s:if test="#st.index % 3 == 1 ">
                             uk-panel-box-primary</s:if>">
@@ -76,10 +76,10 @@
                 </button>
             </form>
             <div class="uk-width-1-1 uk-margin uk-clearfix">
-                <div id="searchResult" class="uk-grid uk-grid-match uk-grid-width-1-1 uk-grid-width-medium-1-3 " data-uk-grid-margin>
+                <div id="searchResult" class="uk-grid uk-grid-match uk-grid-width-1-1 uk-grid-width-medium-1-3 ">
                     <s:if test="#session.fCirclesList == null"><h1>哇，所有的圈子都被你涉足啦@！！@</h1></s:if>
                     <s:iterator value="#session.fCirclesList" var="e" status='st'>
-                        <div class="uk-animation-scale-down uk-animation-10">
+                        <div class="uk-animation-scale-down uk-animation-10" style="padding-top: 30px">
                             <div class="uk-panel uk-panel-box uk-animation-slide-bottom uk-animation-10
                             <s:if test="#st.index % 3 == 1 ">
                             uk-panel-box-primary</s:if>">
