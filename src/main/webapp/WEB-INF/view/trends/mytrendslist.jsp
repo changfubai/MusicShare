@@ -120,7 +120,12 @@
                         </div>
                     </article>
                 </li>
+                <%--添加的comment --%>
+                <a href=# onclick="location.href='${pageContext.request.contextPath}/CommentFindlistAction.action?trends_id=<s:property value="#e.id"/>'">点击查看评论详情</a>
+
                 <hr class="layui-bg-black">
+
+
             </s:iterator>
         </div>
     </div>

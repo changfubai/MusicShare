@@ -89,6 +89,17 @@
         </property>
     </bean>
 
+    <bean id="CommentAction" class="ssh.product.action.comment.CommentAction" scope="prototype">
+        <property name="commentEntityService" ref="commentEntityService"/>
+    </bean>
+
+    <bean id="commentEntityService" class="ssh.product.service.impl.CommentEntityServiceImpl">
+        <property name="commentEntityDao" ref="commentEntityDao"/>
+    </bean>
+
+    <bean id="commentEntityDao" class="ssh.product.dao.impl.CommentEntityDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
     <!--&lt;!&ndash;配置Service层的类&ndash;&gt;-->
 

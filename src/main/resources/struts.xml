@@ -110,6 +110,16 @@
         </action>
     </package>
 
+    <package name="comments" extends="struts-default,json-default" namespace="/"  strict-method-invocation="false">
+        <action name="Comment*Action" class="ssh.product.action.comment.CommentAction" method="{1}">
+            <result name="clist">WEB-INF/view/comment/comment.jsp</result>
+            <result name="isDel">WEB-INF/view/comment/deletecomment.jsp</result>
+            <result name="cdelete" type="json"><param name="root">result</param></result>
+            <result name="writec">WEB-INF/view/comment/writecomment.jsp</result>
+            <result name="writeto" type="json"><param name="root">result</param></result>
+            <result name="wTyTrend">WEB-INF/view/comment/writecomment.jsp</result>
+        </action>
+    </package>
 
     <!-- 引入资源文件 -->
     <constant name="struts.custom.i18n.resources" value="messageResource"></constant>

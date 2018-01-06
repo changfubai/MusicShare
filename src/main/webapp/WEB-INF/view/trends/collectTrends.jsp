@@ -110,6 +110,9 @@
                         <a href="javascript:;" class="uk-icon-hover uk-icon-close  cutcollect" data-id="<s:property value="#e.id"/>" data-userid="<s:property value="2"/>" style="float: right; margin-right: 10px; margin-top: 20px;" title="点击取消收藏"></a>
                     </article>
                 </li>
+                    <%--添加的comment --%>
+                    <a href=# onclick="location.href='${pageContext.request.contextPath}/CommentFindlistAction.action?trends_id=<s:property value="#e.id"/>'">点击查看评论详情</a>
+
                     <hr class="layui-bg-black">
                 </s:iterator>
         </div>

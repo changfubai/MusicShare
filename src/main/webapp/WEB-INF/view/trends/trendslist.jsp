@@ -109,9 +109,13 @@
                     </div>
                     <a href="javascript:;" class="uk-icon-hover uk-icon-heart-o collect" data-id="<s:property value="#e.id"/>" data-userid="<s:property value="#e.userId"/>" style="float: right; margin-right: 10px; margin-top: 20px;" title="点击收藏"></a>
                     <a href="javascript:;" class="uk-icon-hover uk-icon-thumbs-o-up thumb" data-id="<s:property value="#e.id"/>" style="float: right; margin-right: 15px; margin-top: 20px;" title="已被点赞数"><s:property value="#e.star"/></a>
-                    <a href="" class="uk-icon-hover uk-icon-commenting-o" style="float: right; margin-right: 20px; margin-top: 20px;" title="点击评论"></a>
+                    <a href="javascript:;" class="uk-icon-hover uk-icon-commenting-o wcomment" data-id="<s:property value="#e.id"/>" style="float: right; margin-right: 20px; margin-top: 20px;" title="点击评论"></a>
                 </article>
             </li>
+
+        <%--添加的comment --%>
+        <a href=# onclick="location.href='${pageContext.request.contextPath}/CommentFindlistAction.action?trends_id=<s:property value="#e.id"/>'">点击查看评论详情</a>
+
         <hr class="layui-bg-black">
     </s:iterator>
         </div>
@@ -203,6 +207,22 @@
                         layer.msg(json2.msgl, {time: 1000,icon:5});
                     }
                     return false;
+                }
+            });
+        });
+        //写评论
+        $('.wcomment').on('click',function(){
+            var id = $(this).data('id');
+            layer.open({
+                type: 2,
+                title: ['写评论'],
+                content: ["${pageContext.request.contextPath}/CommentWriteByTrendAction.action?id="+id,'no'],
+                area:['520px','350px'],  //宽高
+                resize: false,    //是否允许拉伸
+                scrollbar: false,
+                maxmin: true,
+                end: function(){
+                    location.reload();
                 }
             });
         });
