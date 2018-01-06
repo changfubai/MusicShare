@@ -180,9 +180,9 @@
                 success: function(data2){
                     var json2 = eval("("+data2+")");
                     if (json2.status==1){
-                        layer.msg(json2.msg, {time: 1000,icon:6},function(){parent.location.href="${pageContext.request.contextPath}/Trends_trendsList.action";});
+                        layer.msg(json2.msg, {time: 1000,offset:['255px', '810px'],icon:6},function(){parent.location.href="${pageContext.request.contextPath}/Trends_trendsList.action";});
                     }else{
-                        layer.msg(json2.msgl, {time: 1000,icon:5});
+                        layer.msg(json2.msgl, {time: 1000,offset:['255px', '810px'],icon:5});
                     }
                     return false;
                 }

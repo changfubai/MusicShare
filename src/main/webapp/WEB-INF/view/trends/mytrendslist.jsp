@@ -207,9 +207,9 @@
                     success: function(data){
                         var json = eval("("+data+")");
                         if (json.status==1){
-                            layer.msg(json.msg, {time: 1000},function(){parent.location.href="${pageContext.request.contextPath}/Trends_mytrendsList.action";});
+                            layer.msg(json.msg, {time: 1000,offset:['255px', '810px']},function(){parent.location.href="${pageContext.request.contextPath}/Trends_mytrendsList.action";});
                         }else{
-                            layer.msg(json.msgl, {time: 1000});
+                            layer.msg(json.msgl, {time: 1000,offset:['255px', '810px']});
                         }
                     }
                 });

@@ -107,7 +107,7 @@
                     <div class="uk-comment-body">
                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property escapeHtml="false" value="#e.content"/>
                     </div>
-                    <a href="javascript:;" class="uk-icon-hover uk-icon-heart-o collect" data-id="<s:property value="#e.id"/>" data-userid="<s:property value="#e.userId"/>" style="float: right; margin-right: 10px; margin-top: 20px;" title="点击收藏"></a>
+                    <a href="javascript:;" class="uk-icon-hover uk-icon-heart-o collect" data-id="<s:property value="#e.id"/>" style="float: right; margin-right: 10px; margin-top: 20px;" data-userid="<s:property value="#e.userId"/>"  title="点击收藏"></a>
                     <a href="javascript:;" class="uk-icon-hover uk-icon-thumbs-o-up thumb" data-id="<s:property value="#e.id"/>" style="float: right; margin-right: 15px; margin-top: 20px;" title="已被点赞数"><s:property value="#e.star"/></a>
                     <a href="javascript:;" class="uk-icon-hover uk-icon-commenting-o wcomment" data-id="<s:property value="#e.id"/>" style="float: right; margin-right: 20px; margin-top: 20px;" title="点击评论"></a>
                 </article>
@@ -161,6 +161,7 @@
                 area:['60%','60%'],  //宽高
                 resize: false,    //是否允许拉伸
                 scrollbar: false,
+                offset:['255px', '510px'],
                 maxmin: true,
                 end: function(){
                     location.reload();
@@ -180,9 +181,9 @@
                 success: function(data){
                     var json = eval("("+data+")");
                     if (json.status==1){
-                        layer.msg(json.msg, {time: 1000,icon:6},function(){parent.location.href="${pageContext.request.contextPath}/Trends_trendsList.action";});
+                        layer.msg(json.msg,{time: 1000,offset:['255px', '810px'],icon:6},function(){parent.location.href="${pageContext.request.contextPath}/Trends_trendsList.action";});
                     }else{
-                        layer.msg(json.msgl, {time: 1000});
+                        layer.msg(json.msgl, {time: 1000,offset:['255px', '810px']});
                     }
                     return false;
                 }
@@ -202,9 +203,9 @@
                 success: function(data2){
                     var json2 = eval("("+data2+")");
                     if (json2.status==1){
-                        layer.msg(json2.msg, {time: 1000,icon:6},function(){parent.location.href="${pageContext.request.contextPath}/Trends_trendsList.action";});
+                        top.layer.msg(json2.msg, {time: 1000,offset:['255px', '810px'],icon:6},function(){parent.location.href="${pageContext.request.contextPath}/Trends_trendsList.action";});
                     }else{
-                        layer.msg(json2.msgl, {time: 1000,icon:5});
+                        top.layer.msg(json2.msgl, {time: 1000,offset:['255px', '810px'],icon:5});
                     }
                     return false;
                 }
