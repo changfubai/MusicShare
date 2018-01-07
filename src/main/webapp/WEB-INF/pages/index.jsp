@@ -20,7 +20,6 @@
     <%--butong--%>
     <script src="/js/jquery-2.1.0.js"></script>
     <script src="/js/uikit.js"></script>
-    <script src="js/circle/Thetrends.js"></script>
     <script src="/layui/layui.js"></script>
     <script src="/js/circle/dateFormat.js"></script>
     <script src="/js/circle/circle.js"></script>
@@ -149,7 +148,10 @@
                                             <li><a href="register_page.action">注册</a></li>
                                         </s:if>
                                         <s:else>
-                                            <li><i>${user.name}</i></li>
+                                            <li>
+                                                <%--<img class="uk-comment-avatar" src="<s:property value="#user.photo"/>" alt="" style="width:70px; height:70px; border-radius:50%; overflow:hidden;">--%>
+                                                <span>${user.name}</span>
+                                            </li>
                                             <li><a href="login_exit.action" >退出登录</a></li>
                                         </s:else>
                                     </ul>

@@ -222,6 +222,7 @@
                 area:['520px','350px'],  //宽高
                 resize: false,    //是否允许拉伸
                 scrollbar: false,
+                offset:['300px','300px'],
                 maxmin: true,
                 end: function(){
                     location.reload();

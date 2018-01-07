@@ -59,6 +59,15 @@ public class TrendsEntityDaoImpl extends HibernateDaoSupport implements TrendsEn
 //        List<TrendsEntity> list = (List<TrendsEntity>) this.getHibernateTemplate().find("from TrendsEntity ");
         return list;
     }
+
+    @Override
+    public List GetAllTrendsList(Integer circleId) {
+        Session session= sessionFactory.getCurrentSession();
+        Query query = session.createSQLQuery("select user.name,trends.user_id,user.photo,trends .id,trends.content,trends .star,trends.update_time from trends,user  where trends.user_id=user .id " +
+                "and user.id in (select j.user_id from joincircle j where j.circle_id = "+ circleId +")");
+        return query.list();
+    }
+
     //点赞功能
     @Override
     public void thumbTrends(Integer id) {

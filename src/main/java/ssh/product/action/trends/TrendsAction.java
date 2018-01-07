@@ -152,6 +152,13 @@ public class TrendsAction extends ActionSupport implements SessionAware,ModelDri
         ActionContext.getContext().getValueStack().set("mycollect", mycollect);
         return "collect";
     }
+    //获取指定圈子的动态
+    public String getAll(){
+        int circle_id = trendsEntity.getId();
+        List<TrendsTemp> myList=trendsEntityService.GetAllTrendsList(circle_id);
+        ActionContext.getContext().getValueStack().set("list", myList);
+        return "trendslist";
+    }
     //上传图片
 
     /**

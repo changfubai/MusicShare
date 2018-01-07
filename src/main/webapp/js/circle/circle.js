@@ -1,3 +1,5 @@
+
+
 function circle() {
     layui.use(['layer', 'form', 'jquery'], function () {
         var layer = layui.layer,
@@ -8,6 +10,7 @@ function circle() {
         var url_quit = "JoinCircle_quit";
         var url_join = "JoinCircle_join";
         var url_search = "Circle_search";
+
         // 创建圈子
         $('.createCircle').on('click', function () {
             layer.open({
@@ -19,10 +22,11 @@ function circle() {
                 scrollbar: false,
                 maxmin: true,
                 end: function () {
-                    location.reload();
+                    loadCircle();
                 }
             });
         });
+
         //解散圈子
         $('.dissolveCircle').on('click', function () {
             var id = $(this).data('id');
@@ -61,29 +65,11 @@ function circle() {
         });
 
         // // 获取圈子成员动态
-        // $('.getAll').on('click', function () {
-        //     var id = $(this).data('id');
-        //     $.ajax({
-        //         url: '${pageContext.request.contextPath}/Trends_thumbTrends.action',
-        //         type: 'GET',
-        //         data: {id: id},
-        //         error: function (request) {
-        //             layer.msg("请求服务器超时", {time: 1000, icon: 6});
-        //         },
-        //         success: function (data) {
-        //             var json = eval("(" + data + ")");
-        //             if (json.status == 1) {
-        //                 layer.msg(json.msg, {time: 1000, icon: 6}, function () {
-        //                     loadCircle();
-        //                     // parent.location.href = "${pageContext.request.contextPath}/Trends_trendsList.action";
-        //                 });
-        //             } else {
-        //                 layer.msg(json.msgl, {time: 1000});
-        //             }
-        //             return false;
-        //         }
-        //     });
-        // });
+        $('.getAll').on('click', function () {
+            var id = $(this).data('id');
+            var url_getAll = "Trends_getAll.action?id=" + id;
+            parent.location.href = url_getAll;
+        });
         // 退出圈子
         $('.quitCircle').on('click', function () {
             var id = $(this).data('id');
@@ -164,7 +150,7 @@ function circle() {
                     var html = "";
 
                     for (var i = 0; i < jsonArr.length; i++) {
-                        html += "<div class=\"uk-animation-scale-down uk-animation-10\">"
+                        html += "<div class=\"uk-animation-scale-down uk-animation-10\"  style=\"padding-top: 30px\">"
                             + "<div class=\"uk-panel uk-panel-box uk-animation-slide-bottom uk-animation-10 ";
                         var obj = jsonArr[0];
                         var time = obj.createTime.time.toString();

@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface TrendsEntityService {
     List<TrendsTemp> TrendsList();
+    List<TrendsTemp> GetAllTrendsList(Integer circleId);
     List<TrendsTemp> MyTrendsList(Integer user_id);
     void pushTrends(TrendsEntity trendsEntity);
     List<TrendsTemp> MyCollect(Integer user_id);

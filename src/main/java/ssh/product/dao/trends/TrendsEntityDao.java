@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface TrendsEntityDao {
     List TrendsList();
+    List GetAllTrendsList(Integer circleId);
     List MyTrendsList(Integer user_id);
     void  pushTrends(TrendsEntity trendsEntity);
     List<TrendsEntity> findTrendsById(Integer id);

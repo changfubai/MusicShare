@@ -92,6 +92,26 @@ public class TrendsEntityServiceImpl implements TrendsEntityService {
     }
 
     @Override
+    public List GetAllTrendsList(Integer circleId) {
+        List stuList=trendsEntityDao.GetAllTrendsList(circleId);
+        TrendsTemp tre;
+        List mylist=new ArrayList<>();
+        for(int i = 0; i < stuList.size();i++){
+            tre= new TrendsTemp();
+            Object[] object = (Object[])stuList.get(i);
+            tre.setName((String) object[0]);
+            tre.setUserId((Integer) object[1]);
+            tre.setPhoto((String) object[2]);
+            tre.setId((Integer) object[3]);
+            tre.setContent((String) object[4]);
+            tre.setStar((Integer) object[5]);
+            tre.setUpdateTime((Date) object[6]);
+            mylist.add(tre); // 最终封装在list中 传到前台。
+        }
+        return mylist;
+    }
+
+    @Override
     public List<TrendsTemp> MyTrendsList(Integer user_id) {
         List stuList=trendsEntityDao.MyTrendsList(user_id);
         TrendsTemp tre2;
